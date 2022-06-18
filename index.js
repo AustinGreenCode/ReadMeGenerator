@@ -85,3 +85,16 @@ let questions = [ {
     name: "endgoal"
 }
 ];
+
+inquirer.prompt(questions).then(function(response) {
+    console.log(response);
+
+    var content = fileGenerator(response);
+    console.log(content);
+    fs.writeFile("./ReadMe.md", content, function(err) {
+    if (err) throw err
+    console.log("success");
+});
+} );
+
+
